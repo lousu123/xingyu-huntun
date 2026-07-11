@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幸屿馄饨·手作糖水·运营方案</title>
+  <!-- Noto Color Emoji via CDN：emoji 渲染 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap">
+  <!-- Noto Sans SC via CDN：中文字体 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap">
+  <!-- Inter via CDN：英文字体 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <style>
+    /* ── 主题变量 ── */
+    
+  :root {
+    --bg:          #ffffff;
+    --surface:     #f8f9fa;
+    --surface2:    #f1f3f5;
+    --border:      #dee2e6;
+    --text:        #212529;
+    --text-muted:  #6c757d;
+    --accent:      #2563eb;
+    --accent-soft: #dbeafe;
+    --code-bg:     #f6f8fa;
+    --code-border: #e1e4e8;
+    --bq-border:   #2563eb;
+    --bq-bg:       #eff6ff;
+    --th-bg:       #f1f3f5;
+    --link:        #2563eb;
+    --shadow:      rgba(0,0,0,.06);
+  }
+
+
+    /* ── 字体策略：西文字体优先，中文 CJK 回退 ──
+       英文字符由 Inter / system-ui 渲染（字形美观）
+       中文字符自动 fallback 到思源黑体 / 微软雅黑     ── */
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, system-ui,
+                   'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji',
+                   'Source Han Sans SC', 'Noto Sans CJK SC',
+                   'PingFang SC', 'Microsoft YaHei', 'SimHei', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* ── 页面容器 ── */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 72px 80px;
+    }
+
+    /* ── 封面标题区 ── */
+    .doc-header {
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+    .doc-title {
+      font-family: 'Inter', 'Helvetica Neue', Arial, system-ui,
+                   'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji',
+                   'Source Han Sans SC', 'Noto Sans CJK SC',
+                   'Microsoft YaHei', 'SimHei', sans-serif;
+      font-size: 2.2em;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      letter-spacing: 0;
+      margin-bottom: 10px;
+    }
+    .doc-meta {
+      font-size: 0.82em;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+    }
+    .doc-meta span + span::before { content: ' · '; }
+
+    /* ── 标题 ── */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', 'Helvetica Neue', Arial, system-ui,
+                   'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji',
+                   'Source Han Sans SC', 'Noto Sans CJK SC',
+                   'Microsoft YaHei', 'SimHei', sans-serif;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 1.8em;
+      margin-bottom: 0.6em;
+      line-height: 1.3;
+    }
+    h1 { font-size: 1.9em; border-bottom: 2px solid var(--border); padding-bottom: 0.3em; }
+    h2 { font-size: 1.55em; border-bottom: 1px solid var(--border); padding-bottom: 0.2em; }
+    h3 { font-size: 1.25em; }
+    h4 { font-size: 1.05em; }
+    h5, h6 { font-size: 0.95em; color: var(--text-muted); }
+
+    /* ── 段落 ── */
+    p {
+      margin: 0.75em 0;
+      text-align: justify;
+      hyphens: auto;
+      word-break: break-word;
+    }
+    p.spacer { margin: 0.3em 0; }
+
+    /* ── 链接 ── */
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s;
+    }
+    a:hover { border-bottom-color: var(--link); }
+
+    /* ── 列表 ── */
+    ul, ol {
+      margin: 0.75em 0 0.75em 1.6em;
+      padding: 0;
+    }
+    li {
+      margin: 0.35em 0;
+      line-height: 1.75;
+    }
+    ul li::marker { color: var(--accent); }
+    ol li::marker { color: var(--accent); font-weight: 600; }
+
+    /* ── 代码 ── */
+    code {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code',
+                   'Consolas', 'Menlo', 'Courier New', monospace;
+      font-size: 0.875em;
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 4px;
+      padding: 0.15em 0.4em;
+      color: #e83e8c;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 8px;
+      padding: 1.1em 1.4em;
+      overflow-x: auto;
+      margin: 1.2em 0;
+      position: relative;
+    }
+    pre::before {
+      content: attr(data-lang);
+      position: absolute;
+      top: 8px; right: 14px;
+      font-size: 0.7em;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    pre code {
+      font-size: 0.85em;
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--text);
+      white-space: pre;
+      line-height: 1.65;
+    }
+
+    /* ── 引用块 ── */
+    blockquote {
+      border-left: 4px solid var(--bq-border);
+      background: var(--bq-bg);
+      border-radius: 0 8px 8px 0;
+      margin: 1.2em 0;
+      padding: 0.9em 1.2em;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ── 分割线 ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2em 0;
+    }
+
+    /* ── 表格 ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2em 0;
+      font-size: 0.9em;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px var(--shadow);
+    }
+    thead {
+      background: var(--th-bg);
+    }
+    th, td {
+      padding: 0.7em 1em;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      font-weight: 600;
+      font-size: 0.85em;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) td {
+      background: var(--surface);
+    }
+    tr:hover td {
+      background: var(--accent-soft);
+    }
+
+    /* ── 图片 ── */
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin: 1em auto;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    /* ── 页脚 ── */
+    .doc-footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.78em;
+      color: var(--text-muted);
+    }
+
+    /* ── 打印 / PDF 优化 ── */
+    @media print {
+      @page {
+        size: 210mm 297mm;
+        margin: 18mm 18mm 18mm 18mm;
+      }
+      html { font-size: 11pt; }
+      body { background: #fff !important; color: #111 !important; }
+      .page-wrapper { max-width: 100%; padding: 0; }
+      pre { page-break-inside: avoid; }
+      /* 表格允许跨页，避免首页大面积空白 */
+      tr { page-break-inside: avoid; }
+      h1, h2, h3 { page-break-after: avoid; }
+      a { color: #2563eb !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <div class="doc-header">
+      <div class="doc-title">幸屿馄饨·手作糖水·运营方案</div>
+      <div class="doc-meta"><span>✍️ 苏苏</span> · <span>📅 2026年07月10日</span></div>
+    </div>
+
+    <div class="doc-body">
+      <h1>🥟 幸屿馄饨·手作糖水 · 开业全渠道运营方案</h1>
+<p class="spacer"></p>
+<p><strong>天津 · 外滩/金街 | 金街夜市2楼 | 60㎡ | 人均¥30+</strong></p>
+<p><strong>小吃类 · 馄饨+手作糖水 | 刚装修</strong></p>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>01 - 背景概述</h2>
+<p class="spacer"></p>
+<p><strong>幸屿馄饨·手作糖水</strong>，位于外滩/金街商圈·金街夜市2楼，60㎡小吃业态，主打馄饨+手作糖水双产品线。</p>
+<p class="spacer"></p>
+<p><strong>门店画像：</strong></p>
+<ul><li>夜市2楼位置 → 需解决"上二楼"的引流问题</li><li>人均¥30+ → 薄利多销，翻台率是核心</li><li>馄饨+手作糖水 → 两条腿走路，午市馄饨+下午茶糖水</li><li>刚装修，暂无星级</li></ul>
+<p class="spacer"></p>
+<p><strong>核心目标：</strong> 以"馄饨暖胃+糖水治愈"为品牌调性，以夜市2楼自然客流+线上引流双驱动，快速积累首批评价，打造金街夜市的小吃打卡点。</p>
+<p class="spacer"></p>
+<p><strong>核心挑战：</strong> 二楼位置不如一楼沿街，需通过门头引导+线上种草双重发力，把"路过"变成"上楼"。</p>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>02 - 整体策略框架</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>阶段</th><th>时间</th><th>核心策略</th></tr></thead><tbody><tr><td>🏗️ <strong>筹备期</strong></td><td>开业前10天</td><td>门头引导+平台开户+基础蓄水</td></tr><tr><td>🚀 <strong>引爆期</strong></td><td>开业1-7天</td><td>1元引流+好评破冰+夜市打卡</td></tr><tr><td>🔥 <strong>积累期</strong></td><td>开业2-4周</td><td>糖水出圈+馄饨口碑+小红书种草</td></tr><tr><td>🏆 <strong>稳定期</strong></td><td>开业第2个月</td><td>复购券+双时间段运营+外卖常态化</td></tr></tbody></table>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>03 - 开业前线下引流（夜市2楼破解）</h2>
+<p class="spacer"></p>
+<h3>3.1 核心逻辑</h3>
+<p>夜市2楼最大的问题是"顾客不知道上面有吃的"。必须在<strong>一楼入口处+楼梯口+电梯口</strong>铺设显眼引导。</p>
+<p class="spacer"></p>
+<h3>3.2 引流触点铺设</h3>
+<p class="spacer"></p>
+<table><thead><tr><th>触点位置</th><th>铺设方式</th><th>预估日触达</th></tr></thead><tbody><tr><td>金街夜市1楼入口</td><td>落地引导立牌+领券二维码</td><td>50-100人/天</td></tr><tr><td>1楼→2楼楼梯口</td><td>墙面引导贴+发光箭头 + "上楼领5元券"</td><td>30-50人/天</td></tr><tr><td>夜市1楼热门摊位</td><td>合作桌贴（互推引流）</td><td>15-25人/天</td></tr><tr><td>2楼走廊/电梯口</td><td>灯箱海报+开业倒计时</td><td>路过即触达</td></tr></tbody></table>
+<p class="spacer"></p>
+<h3>3.3 开业前蓄水</h3>
+<ul><li>装修围挡挂海报："幸屿馄饨·手作糖水 即将开业，扫码领5元券"</li><li>周边商铺互推：与夜市其他摊位互放宣传单</li><li>金街夜市社群预热：在周边吃喝玩乐群发开业福利</li></ul>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>04 - DM单/宣传物料设计</h2>
+<p class="spacer"></p>
+<p><strong>规格：</strong> A5双面（148mm×210mm）| 157g铜版纸 | 治愈系清新风格</p>
+<p class="spacer"></p>
+<p><strong>正面布局：</strong></p>
+<ul><li><strong>顶部</strong>：🥟 幸屿馄饨·手作糖水 · 金街夜市2楼</li><li><strong>Slogan</strong>：馄饨暖胃 · 糖水治愈</li><li><strong>中间双二维码</strong>：① 大众点评团购码 ② 领券私域码（满20减5）</li><li><strong>下方优惠栏</strong>：开业首周全场8.8折 | 1元购鲜肉小馄饨（限量） | 发圈赠手作糖水 | 馄饨+糖水套餐减3元</li></ul>
+<p class="spacer"></p>
+<p><strong>门头引导物料：</strong></p>
+<ul><li>1楼入口：落地发光引导牌「幸屿馄饨·手作糖水 ↑ 2楼」</li><li>楼梯墙面：创意引导贴纸（脚印引向2楼+"上楼吃馄饨喝糖水"）</li><li>2楼店门口：发光灯箱+菜单展示</li></ul>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>05 - 全渠道会员自动沉淀</h2>
+<p class="spacer"></p>
+<p><strong>沉淀场景：</strong> 扫码点餐 | 团购核销 | 领券核销 | 收银台消费 | 美团外卖</p>
+<p class="spacer"></p>
+<p><strong>首月预计：</strong> 领券核销200-400人 + 扫码点餐300-500人 + 团购核销150-250人 + 收银台100-200人 = <strong>合计750-1350人</strong></p>
+<p class="spacer"></p>
+<p><strong>馄饨+糖水双线策略：</strong></p>
+<ul><li>中午吃馄饨的顾客 → 自动推送下午糖水券（满15减5）</li><li>下午喝糖水的顾客 → 推送晚餐馄饨券（满20减6）</li></ul>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>06 - 复购券与二次营销</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>时间节点</th><th>券内容</th><th>有效期</th><th>目标</th></tr></thead><tbody><tr><td>消费后次日</td><td>满25减8元复购券</td><td>7天</td><td>趁热打铁</td></tr><tr><td>5天未复购</td><td>满20减6元唤醒券</td><td>15天</td><td>轻度唤醒</td></tr><tr><td>7天沉睡</td><td>「想你了」满15减5元</td><td>7天</td><td>挽回流失</td></tr><tr><td>每月会员日(16号)</td><td>全场8折券</td><td>当天</td><td>培养消费习惯</td></tr></tbody></table>
+<p class="spacer"></p>
+<p><strong>双产品线交叉推送：</strong></p>
+<ul><li>中午吃馄饨 → 推送下午糖水券（跨时段拉客）</li><li>下午喝糖水 → 推送次日早午餐馄饨券（跨天复购）</li></ul>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>07 - 开业现场活动</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>活动</th><th>内容</th><th>目的</th><th>限定</th></tr></thead><tbody><tr><td>🥟 <strong>1元小馄饨</strong></td><td>原价12元鲜肉小馄饨，开业1元（每人限1份）</td><td>人海战术引流</td><td>前3天限量100份/天</td></tr><tr><td>🍧 <strong>全场8.8折</strong></td><td>开业首周全场8.8折</td><td>降低尝鲜门槛</td><td>仅限首周</td></tr><tr><td>📸 <strong>发圈赠糖水</strong></td><td>发朋友圈/小红书/抖音赠手作糖水1份</td><td>裂变传播</td><td>开业首周</td></tr><tr><td>🎯 <strong>馄饨+糖水套餐</strong></td><td>馄饨+糖水组合套餐，比单点省5元</td><td>提高客单价</td><td>长期</td></tr><tr><td>🆓 <strong>试吃小碗</strong></td><td>门口设置试吃台，小碗馄饨汤+迷你糖水杯</td><td>引客上楼</td><td>开业首月</td></tr></tbody></table>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>08 - 馄饨+手作糖水双线专项</h2>
+<p class="spacer"></p>
+<h3>8.1 产品结构设计</h3>
+<p class="spacer"></p>
+<table><thead><tr><th>时段</th><th>主力产品</th><th>辅助产品</th><th>人均</th></tr></thead><tbody><tr><td>☀️ 上午/午市(10:00-14:00)</td><td>鲜肉馄饨、荠菜馄饨、虾仁馄饨</td><td>拌面、小菜</td><td>¥20-30</td></tr><tr><td>🌤️ 下午茶(14:00-17:00)</td><td>手作糖水、甜品</td><td>馄饨（少量）</td><td>¥15-25</td></tr><tr><td>🌙 晚市/夜宵(17:00-22:00)</td><td>馄饨+糖水组合</td><td>小食拼盘</td><td>¥30-40</td></tr></tbody></table>
+<p class="spacer"></p>
+<h3>8.2 糖水线特色（小红书爆品潜力）</h3>
+<ul><li><strong>招牌推荐</strong>：杨枝甘露、芋圆烧仙草、桂花酒酿小圆子、绿豆沙牛乳</li><li><strong>颜值打卡</strong>：透明杯分层糖水，拍照好看</li><li><strong>手作现做</strong>：强调"每日现煮""手作无添加"</li></ul>
+<p class="spacer"></p>
+<h3>8.3 馄饨线</h3>
+<ul><li><strong>经典款</strong>：鲜肉小馄饨（引流）、荠菜鲜肉（招牌）、虾仁馄饨（升级）</li><li><strong>利润款</strong>：拌面/拌粉、小食拼盘（高毛利）</li><li><strong>套餐设计</strong>：馄饨+糖水=套餐省5元 → 客单价从¥20拉到¥35+</li></ul>
+<p class="spacer"></p>
+<h3>8.4 出餐效率</h3>
+<ul><li>馄饨提前包好冷冻，下单即煮（3分钟出餐）</li><li>糖水提前备好冷藏，直接出品</li><li>扫码点餐减少等待，翻台率翻倍</li></ul>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>09 - 大众点评运营</h2>
+<p class="spacer"></p>
+<p><strong>四大执行动作：</strong></p>
+<ol><li><strong>内测体验</strong>：开业前2天邀请15-20人免费品尝，要求发布带图评价</li><li><strong>合规引导</strong>：结账后引导扫码评价（不提赠品），24小时回复差评</li><li><strong>关键词优化</strong>：金街夜市、手作糖水、馄饨、天津小吃、治愈系</li><li><strong>冲击新店榜</strong>：外滩/金街小吃新店榜Top10</li></ol>
+<p class="spacer"></p>
+<p><strong>KPI：</strong> 首月评分4.2⭐ | 评价40条+ | 收藏200个 | 团购核销率65%</p>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>10 - 抖音运营</h2>
+<p class="spacer"></p>
+<p><strong>内容方向：</strong></p>
+<ul><li>🎬 <strong>治愈系特写</strong>：馄饨在沸水中翻滚+糖水倒入透明杯的特写慢镜头</li><li>🎬 <strong>"上楼寻宝"剧情</strong>：楼梯引导+找到幸屿的过程，带位置定位</li><li>🎬 <strong>夜市逛吃</strong>：金街夜市逛吃攻略→路过幸屿</li></ul>
+<p class="spacer"></p>
+<p><strong>达人合作：</strong> 联系2-3位本地美食探店达人（粉丝1000-1万），霸王餐置换</p>
+<p class="spacer"></p>
+<p><strong>本地推投流：</strong> 金街3公里围栏，首周300元</p>
+<p class="spacer"></p>
+<p><strong>KPI：</strong> 视频5-8条 | POI曝光2万+ | 团购核销率50%</p>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>11 - 小红书运营</h2>
+<p class="spacer"></p>
+<p><strong>内容方向（糖水是小红书爆品种草利器）：</strong></p>
+<ul><li>📸 <strong>《金街夜市挖到宝·手作糖水绝了》</strong> 颜值糖水拍照打卡</li><li>📸 <strong>《人均25吃到撑·馄饨+糖水神仙组合》</strong> </li><li>📸 <strong>《天津外滩糖水地图》</strong> 定位幸屿</li><li>📸 <strong>糖水分层特写</strong>：透明杯层层分明，小红书自带流量</li></ul>
+<p class="spacer"></p>
+<p><strong>执行动作：</strong> 品牌号笔记8篇+ | 探店博主2位 | UGC激发（发笔记赠糖水）</p>
+<p class="spacer"></p>
+<p><strong>KPI：</strong> 品牌号笔记8篇+ | UGC笔记5篇+ | POI浏览量1.5万+</p>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>12 - 收银系统与对客建议标准化</h2>
+<p class="spacer"></p>
+<p><strong>收银全链路：</strong> 后台配置 → 门头引导+二维码铺设 → 到店核销 → 复购券自动推送 → 私域沉淀</p>
+<p class="spacer"></p>
+<p><strong>收银员五句对客建议：</strong></p>
+<ol><li><strong>核销</strong>：「您好，券已核销，馄饨马上就好！」</li><li><strong>会员</strong>：「报手机号加入会员，今天送一份小菜或糖水加料」</li><li><strong>套餐</strong>：「馄饨+糖水套餐比单点省5块，试试不？」</li><li><strong>口碑</strong>：「觉得味道不错的话，方便点个星、收藏一下」</li><li><strong>社群</strong>：「加个群，每周有会员专属福利和上新通知」</li></ol>
+<p class="spacer"></p>
+<p><strong>台卡布置：</strong> ① 团购套餐立牌 ② 社群加群二维码 ③ 小红书拍照打卡指引 ④ 馄饨+糖水套餐推荐</p>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>13 - 活动节奏总览</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>阶段</th><th>时间</th><th>核心动作</th></tr></thead><tbody><tr><td>🏗️ <strong>筹备期</strong></td><td>开业前10天</td><td>门头引导物料到位+平台开店+团购上架+夜市预热</td></tr><tr><td>🚀 <strong>引爆期</strong></td><td>开业1-7天</td><td>1元馄饨引流+8.8折+发圈赠糖水+内测评价</td></tr><tr><td>🔥 <strong>积累期</strong></td><td>开业2-4周</td><td>糖水小红书种草+馄饨口碑+社群沉淀</td></tr><tr><td>🏆 <strong>稳定期</strong></td><td>开业第2月</td><td>复购券+双时段运营+夜市常态化</td></tr></tbody></table>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>14 - 预算汇总</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>档位</th><th>金额</th><th>包含项目</th></tr></thead><tbody><tr><td>🟢 <strong>基础版</strong></td><td><strong>¥2,000</strong></td><td>引导物料500+二维码物料200+DM单300+内测食材300+开业赠品500+试吃台200</td></tr><tr><td>🟡 <strong>标准版</strong></td><td><strong>¥4,500</strong></td><td>基础版+探店博主2位1500+小红书矩阵500+抖音投流500</td></tr><tr><td>🔴 <strong>完整版</strong></td><td><strong>¥7,000</strong></td><td>标准版+达人矩阵2000+发光引导灯箱1500+社群运营500</td></tr></tbody></table>
+<p class="spacer"></p>
+<blockquote>成本低，投资小，重点在物料和线上引流</blockquote>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>15 - KPI总览 + 营收测算</h2>
+<p class="spacer"></p>
+<p><strong>核心KPI：</strong></p>
+<table><thead><tr><th>维度</th><th>首月目标</th><th>季度目标</th></tr></thead><tbody><tr><td>点评评分</td><td>4.2⭐</td><td>4.5⭐+</td></tr><tr><td>评价数</td><td>40条+</td><td>150条+</td></tr><tr><td>收藏打卡</td><td>200个</td><td>600个</td></tr><tr><td>私域会员</td><td>700人</td><td>1,500人</td></tr><tr><td>复购率</td><td>25%</td><td>35%+</td></tr><tr><td><strong>营收</strong></td><td><strong>¥3.5万</strong></td><td><strong>¥7万</strong></td></tr></tbody></table>
+<p class="spacer"></p>
+<p><strong>营收测算：</strong></p>
+<ol><li>自然客流（夜市2楼）：日均40人×30天×¥30 = ¥3.6万</li><li>团购引流到店：200份×60%×¥25 = ¥0.3万</li><li>外卖营收：日均15单×¥20×30天 = ¥0.9万</li><li><strong>首月保守营收：¥3.5万</strong>（馄饨+糖水双线拉动可达¥4万+）</li></ol>
+<p class="spacer"></p>
+<p><strong>翻台率测算：</strong> 60㎡小店约8-10张桌，午市+下午茶+晚市三段覆盖</p>
+<ul><li>午市（10:00-14:00）：翻台2次</li><li>下午茶（14:00-17:00）：翻台1.5次</li><li>晚市（17:00-22:00）：翻台2次</li><li><strong>日均总客单：约100-150人次</strong></li></ul>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>16 - 竞品分析</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>竞品</th><th>距离</th><th>人均</th><th>分析</th></tr></thead><tbody><tr><td>同夜市小吃摊/店</td><td>同层</td><td>¥20-40</td><td>品类分散，馄饨+糖水组合无直接竞品</td></tr><tr><td>夜市其他甜品店</td><td>同层</td><td>¥20-35</td><td>糖水赛道有竞品，需靠手作差异化</td></tr><tr><td>金街周边馄饨店</td><td>300m内</td><td>¥15-25</td><td>价格更低但环境/品质差</td></tr></tbody></table>
+<p class="spacer"></p>
+<p><strong>五大差异化优势：</strong></p>
+<ol><li>🥟 馄饨+糖水双线组合，独一无二</li><li>🍧 手作糖水颜值高，小红书打卡属性</li><li>📍 金街夜市位置，夜经济红利</li><li>💰 人均低，复购门槛低</li><li>🏠 干净整洁的小店环境 vs 路边摊</li></ol>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>17 - 总结</h2>
+<p class="spacer"></p>
+<p><strong>核心策略：</strong> 以"馄饨暖胃·糖水治愈"为品牌调性，以1元小馄饨为引流尖刀，以手作糖水的颜值+治愈感为小红书种草引擎，配合夜市2楼门头引导+线上流量双驱动。</p>
+<p class="spacer"></p>
+<p><strong>核心口诀：</strong> 馄饨拉复购（高频）→ 糖水做种草（出圈）→ 套餐提客单（利润）</p>
+<p class="spacer"></p>
+<blockquote><strong>策划：苏苏 | 美团SAAS · 2026年7月</strong></blockquote>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>18 - 夜市2楼引流专项</h2>
+<p class="spacer"></p>
+<p><strong>18.1 1楼→2楼引导方案</strong></p>
+<table><thead><tr><th>位置</th><th>物料</th><th>预算</th></tr></thead><tbody><tr><td>1楼入口</td><td>落地发光引导牌「幸屿↑2楼」</td><td>¥200</td></tr><tr><td>楼梯墙面</td><td>创意引导贴纸+脚印+"上楼领券"</td><td>¥150</td></tr><tr><td>1楼电梯口</td><td>灯箱海报</td><td>¥300</td></tr><tr><td>楼梯转角</td><td>试吃小碗提示「还有2步就到了」</td><td>¥100</td></tr></tbody></table>
+<p class="spacer"></p>
+<p><strong>18.2 夜市互推联盟</strong></p>
+<ul><li>与夜市1楼热门摊位合作：买满XX元送幸屿5元券</li><li>反向：在幸屿消费满额送合作摊位优惠券</li><li>夜市微信群/社群资源共享</li></ul>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>19 - 执行落地清单</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>时间</th><th>任务</th><th>完成标准</th></tr></thead><tbody><tr><td>D-10</td><td>1楼→2楼引导物料制作安装</td><td>拍照确认</td></tr><tr><td>D-10</td><td>美团/大众点评开店+团购上架</td><td>可正常购买</td></tr><tr><td>D-10</td><td>收银后台配置+二维码生成</td><td>二维码可扫码</td></tr><tr><td>D-7</td><td>夜市互推合作谈妥（3家以上）</td><td>桌贴已贴</td></tr><tr><td>D-5</td><td>馄饨备货+糖水配方定稿</td><td>试吃通过</td></tr><tr><td>D-3</td><td>开业内测体验15-20人</td><td>评价开始发布</td></tr><tr><td>D-2</td><td>收银员培训+台卡摆放+试吃台准备</td><td>全员熟练</td></tr><tr><td>D-1</td><td>开业检查（引导牌/菜单/食材/设备）</td><td>一切就绪</td></tr><tr><td><strong>D-Day</strong></td><td><strong>开业！</strong> 1元馄饨+8.8折+发圈赠糖水</td><td>首日客流达标</td></tr><tr><td>D+3</td><td>首轮好评检查+差评排查</td><td>评分≥4.0</td></tr><tr><td>D+7</td><td>首周复盘+复购券启动</td><td>数据汇总</td></tr><tr><td>D+14</td><td>小红书种草启动（2位探店博主）</td><td>笔记发布</td></tr><tr><td>D+30</td><td>首月复盘+双线产品调整</td><td>KPI分析</td></tr></tbody></table>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>20 - 风险预案B计划</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>风险</th><th>预警线</th><th>B计划</th></tr></thead><tbody><tr><td>① 2楼引流不足</td><td>首周日均不足30人</td><td>追加1楼试吃+夜市广播+加大抖音投流</td></tr><tr><td>② 首周核销率<30%</td><td>第3天不足30%</td><td>短信提醒+延长1元活动+核销赠料</td></tr><tr><td>③ 糖水复购低</td><td>周复购<15%</td><td>增加糖水上新频次+限时糖水盲盒</td></tr><tr><td>④ 评分<4.0</td><td>低于4.0</td><td>排查差评+强化服务+邀请橙V体验</td></tr><tr><td>⑤ 营收未达3.5万</td><td>第3周不足1.5万</td><td>延长开业活动+加大外卖+储值赠</td></tr></tbody></table>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>21 - 外卖渠道策略</h2>
+<p class="spacer"></p>
+<p><strong>适合外卖：</strong> 馄饨（带汤打包）、拌面、小菜、瓶装糖水</p>
+<p><strong>不适合外卖：</strong> 现做糖水（易洒）、冰品</p>
+<p class="spacer"></p>
+<p><strong>运营策略：</strong></p>
+<ul><li>🍱 <strong>外卖专属套餐</strong>：单人馄饨套餐¥19.9、馄饨+糖水双享¥28.8</li><li>📦 <strong>包装设计</strong>：馄饨汤食分离+品牌贴纸+社群加群卡片</li><li>⏰ <strong>时段策略</strong>：午市(10:00-14:00)馄饨主推，下午茶(14:00-17:00)糖水主推</li><li>🎯 <strong>满减设计</strong>：满20减4 / 满35减8 / 满50减12</li></ul>
+<p class="spacer"></p>
+<p><strong>KPI：</strong> 首月外卖订单200单+ | 评分4.5⭐+ | 首月外卖营收¥0.8万+</p>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>22 - 每日运营SOP</h2>
+<p class="spacer"></p>
+<p><strong>每日SOP（09:00-22:30）</strong></p>
+<table><thead><tr><th>时间</th><th>任务</th></tr></thead><tbody><tr><td>09:00-10:00</td><td>到店准备：馄饨包制、糖水熬煮、前菜备料</td></tr><tr><td>10:00-14:00</td><td><strong>午市高峰</strong>：馄饨为主+外卖接单</td></tr><tr><td>14:00-15:00</td><td>午市复盘+评价回复+社群互动</td></tr><tr><td>15:00-17:00</td><td><strong>下午茶时段</strong>：糖水为主+小红书拍照素材</td></tr><tr><td>17:00-22:00</td><td><strong>晚市夜市高峰</strong>：馄饨+糖水双线+夜市客流</td></tr><tr><td>22:00-22:30</td><td>收档+盘点+明日备货+评价检查</td></tr></tbody></table>
+<p class="spacer"></p>
+<p><strong>每周SOP</strong></p>
+<table><thead><tr><th>周几</th><th>任务</th></tr></thead><tbody><tr><td>周一</td><td>数据复盘（营收/评价/复购率）</td></tr><tr><td>周二</td><td>检查复购券+社群活跃度</td></tr><tr><td>周三</td><td>联系探店达人/安排霸王餐</td></tr><tr><td>周四</td><td>糖水新品调试+周末备货</td></tr><tr><td>周五六日</td><td>夜市高峰运营+拍摄素材</td></tr></tbody></table>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<h2>23 - 客流低谷应对</h2>
+<p class="spacer"></p>
+<table><thead><tr><th>场景</th><th>应对策略</th></tr></thead><tbody><tr><td>🌧️ 工作日午市冷清</td><td>馄饨+小菜定食套餐¥19.9+外卖主推+周边写字楼派发</td></tr><tr><td>🌧️ 工作日下午平淡</td><td>糖水第二杯半价+社群下午茶福利+小红书打卡活动</td></tr><tr><td>🌧️ 夜市下雨客流少</td><td>外卖加码+社群福利+雨天专属套餐</td></tr><tr><td>🌧️ 节假日前夕</td><td>提前囤券+糖水新品预告+调整备货</td></tr><tr><td>🌧️ 竞品夜市开店</td><td>套餐升级+社群福利加大+强调手作差异化</td></tr></tbody></table>
+<p class="spacer"></p>
+<blockquote>💡 <strong>核心原则：</strong> 小店灵活转身快，随时根据客流调整产品结构和推广重心。</blockquote>
+<p class="spacer"></p>
+<hr>
+<p class="spacer"></p>
+<blockquote><strong>策划：苏苏 | 美团SAAS · 2026年7月</strong></blockquote>
+    </div>
+
+    <div class="doc-footer">
+      由 html-pdf-creator 自动生成 · 2026年07月10日
+    </div>
+
+  </div>
+</body>
+</html>
